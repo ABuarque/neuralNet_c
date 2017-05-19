@@ -9,6 +9,7 @@
 
 //private functions (user don not need to know them)
 float getDistance(const Sample* s1, const Sample* s2);
+int sampleSetSize(const KnnClassifier* knn);
 
 KnnClassifier newKnnClassifier(int samples) {
 	KnnClassifier knn;
@@ -16,10 +17,6 @@ KnnClassifier newKnnClassifier(int samples) {
 	knn.samplesSet = (Sample*) malloc(sizeof(Sample) * samples);
 	knn.index = 0;
 	return knn;
-}
-
-int sampleSetSize(const KnnClassifier* knn) {
-	return knn->samples;
 }
 
 void destroyKnnClassifier(KnnClassifier* knn) {
@@ -30,12 +27,19 @@ void destroyKnnClassifier(KnnClassifier* knn) {
 	free(knn->samplesSet);
 }
 
-void addSamplesToSet(Sample sample) {
-
+void addSamplesToSet(KnnClassifier* knn, Sample* sample) {
+	//add exception checker here to check if 
+	//samplesSet is full
+	knn->samplesSet[knn->index] = *sample;
+	knn->index++;
 }
 
-char* classify(Sample sample, int neighbors) {
+char* classify(Sample* sample, int neighbors) {
 	
+}
+
+int sampleSetSize(const KnnClassifier* knn) {
+	return knn->samples;
 }
 
 float getDistance(const Sample* s1, 
