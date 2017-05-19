@@ -7,11 +7,27 @@
 
 #define DEBUG if(1)
 
+//private functions (user don not need to know them)
+float getDistance(const Sample* s1, const Sample* s2);
+char* classifySample(int neighbors);
+
 KnnClassifier newKnnClassifier(int samples) {
 	KnnClassifier knn;
 	knn.samples = samples;
 	knn.samplesSet = (Sample*) malloc(sizeof(Sample) * samples);
 	return knn;
+}
+
+int sampleSetSize(const KnnClassifier* knn) {
+	return knn->samples;
+}
+
+void destroyKnnClassifier(KnnClassifier* knn) {
+	int i;
+	const int SAMPLES = sampleSetSize(knn);
+	for(i = 0; i < SAMPLES; i++)
+		destroySample(&knn->samplesSet[i]);
+	free(knn->samplesSet);
 }
 
 float getDistance(const Sample* s1, 

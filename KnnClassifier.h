@@ -15,10 +15,8 @@ typedef struct knnClassifier KnnClassifier;
  */
 KnnClassifier newKnnClassifier(int samples);
 
-float getDistance(const Sample* s1, const Sample* s2);
-
-char* classifySample(int neighbors );
-
 void destroyKnnClassifier(KnnClassifier* knn);
+
+int sampleSetSize(const KnnClassifier* knn);
 
 #endif
