@@ -34,8 +34,14 @@ void addSampleToSet(KnnClassifier* knn, Sample* sample) {
 	knn->index++;
 }
 
-char* classify(Sample* sample, int neighbors) {
-	
+char* classify(KnnClassifier* knn, Sample* sample, int neighbors) {
+	if(neighbors % 2 == 0) {
+		neighbors--;
+		if(neighbors <= 0)
+			neighbors = 1;
+	}
+	const int SET_SIZE = sampleSetSize(knn);
+	//FROM HERE......
 }
 
 int sampleSetSize(const KnnClassifier* knn) {

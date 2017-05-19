@@ -20,6 +20,6 @@ void destroyKnnClassifier(KnnClassifier* knn);
 
 void addSampleToSet(KnnClassifier* knn, Sample* sample);
 
-char* classify(Sample* sample, int neighbors);
+char* classify(KnnClassifier* knn, Sample* sample, int neighbors);
 
 #endif
