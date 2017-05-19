@@ -27,7 +27,7 @@ void destroyKnnClassifier(KnnClassifier* knn) {
 	free(knn->samplesSet);
 }
 
-void addSamplesToSet(KnnClassifier* knn, Sample* sample) {
+void addSampleToSet(KnnClassifier* knn, Sample* sample) {
 	//add exception checker here to check if 
 	//samplesSet is full
 	knn->samplesSet[knn->index] = *sample;
@@ -48,6 +48,6 @@ float getDistance(const Sample* s1,
 	const int ATTRIBUTES_SIZE = attributes(s1);
 	int i;
 	for(i = 0; i < ATTRIBUTES_SIZE; i++)
-		sum += getValues(s1)[i] + getValues(s2)[i];
+		sum += pow(getValues(s1)[i] - getValues(s2)[i], 2);
 	return (float) sqrt(sum);
 }
