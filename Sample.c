@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-Sample newSample(int attributes, int values[], char* class) {
+Sample newSample(int attributes, double values[], char* class) {
 	Sample sample;
 	sample.attributes = attributes;
 	int i;
-	sample.values = (int*) malloc(sizeof(int) * attributes);
+	sample.values = (double*) malloc(sizeof(double) * attributes);
 	for(i = 0; i < attributes; i++)
 		sample.values[i] = values[i];
 	strcpy(sample.class, class);
@@ -18,7 +18,7 @@ char* getClass(const Sample* sample) {
 	return sample->class;
 }
 
-float* getValues(const Sample* sample) {
+double* getValues(const Sample* sample) {
 	return sample->values;
 }
 

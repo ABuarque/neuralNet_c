@@ -3,7 +3,7 @@
 
 struct sample {
 	char class[101];
-	float* values;
+	double* values;
 	int attributes;
 };
 
@@ -14,7 +14,7 @@ typedef struct sample Sample;
  * set with values
  * name classification
  */
-Sample newSample(int attributes, int values[], char* class);
+Sample newSample(int attributes, double values[], char* class);
 
 char* getClass(const Sample* sample);
 
