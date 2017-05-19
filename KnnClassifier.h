@@ -6,6 +6,7 @@
 struct knnClassifier {
 	int samples;
 	Sample* samplesSet;
+	int index;
 };
 
 typedef struct knnClassifier KnnClassifier;
@@ -18,5 +19,9 @@ KnnClassifier newKnnClassifier(int samples);
 void destroyKnnClassifier(KnnClassifier* knn);
 
 int sampleSetSize(const KnnClassifier* knn);
+
+void addSamplesToSet(Sample sample);
+
+char* classify(Sample sample, int neighbors);
 
 #endif

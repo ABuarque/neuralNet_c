@@ -9,12 +9,12 @@
 
 //private functions (user don not need to know them)
 float getDistance(const Sample* s1, const Sample* s2);
-char* classifySample(int neighbors);
 
 KnnClassifier newKnnClassifier(int samples) {
 	KnnClassifier knn;
 	knn.samples = samples;
 	knn.samplesSet = (Sample*) malloc(sizeof(Sample) * samples);
+	knn.index = 0;
 	return knn;
 }
 
@@ -28,6 +28,14 @@ void destroyKnnClassifier(KnnClassifier* knn) {
 	for(i = 0; i < SAMPLES; i++)
 		destroySample(&knn->samplesSet[i]);
 	free(knn->samplesSet);
+}
+
+void addSamplesToSet(Sample sample) {
+
+}
+
+char* classify(Sample sample, int neighbors) {
+	
 }
 
 float getDistance(const Sample* s1, 
