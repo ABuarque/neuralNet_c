@@ -20,8 +20,8 @@ void destroyKnnClassifier(KnnClassifier* knn);
 
 int sampleSetSize(const KnnClassifier* knn);
 
-void addSamplesToSet(Sample sample);
+void addSamplesToSet(KnnClassifier* knn, Sample* sample);
 
-char* classify(Sample sample, int neighbors);
+char* classify(Sample* sample, int neighbors);
 
 #endif
