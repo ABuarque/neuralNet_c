@@ -8,7 +8,7 @@
 #define DEBUG if(1)
 
 //private functions (user don not need to know them)
-float getDistance(const Sample* s1, const Sample* s2);
+double getDistance(const Sample* s1, const Sample* s2);
 int sampleSetSize(const KnnClassifier* knn);
 
 KnnClassifier newKnnClassifier(int samples) {
@@ -48,12 +48,12 @@ int sampleSetSize(const KnnClassifier* knn) {
 	return knn->samples;
 }
 
-float getDistance(const Sample* s1, 
+double getDistance(const Sample* s1, 
 					const Sample* s2) {
-	float sum = 0;
+	double sum = 0;
 	const int ATTRIBUTES_SIZE = attributes(s1);
 	int i;
 	for(i = 0; i < ATTRIBUTES_SIZE; i++)
 		sum += pow(getValues(s1)[i] - getValues(s2)[i], 2);
-	return (float) sqrt(sum);
+	return sqrt(sum);
 }
