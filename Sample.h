@@ -18,7 +18,7 @@ Sample newSample(int attributes, double values[], char* class);
 
 char* getClass(const Sample* sample);
 
-float* getValues(const Sample* sample);
+double* getValues(const Sample* sample);
 
 int attributes(const Sample* sample);
 
