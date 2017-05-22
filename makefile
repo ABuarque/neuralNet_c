@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -I. -W -Wall
+CFLAGS = -I.
 LIBS = -lm
 DEPS = $(wildcard *.h)
 SRC = $(wildcard *.c)
